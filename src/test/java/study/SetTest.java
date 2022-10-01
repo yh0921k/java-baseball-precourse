@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class SetTest {
@@ -42,5 +43,12 @@ public class SetTest {
     void contains(int number) {
         // then
         assertThat(numbers.contains(number)).isTrue();
+    }
+
+    @ParameterizedTest(name = "Set에 대해 입력 값에 따라 결과 값이 다른 경우 테스트")
+    @CsvSource(value = {"1:true", "2:true", "3:true", "4:false", "5:false"}, delimiter = ':')
+    void contains(int number, boolean expected) {
+        // then
+        assertThat(numbers.contains(number)).isEqualTo(expected);
     }
 }
