@@ -2,6 +2,8 @@ package study;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -50,5 +52,22 @@ public class StringTest {
         // then
         assertThat(result).doesNotContain("(", ")");
         assertThat(result).isEqualTo("1,2");
+    }
+
+    @Test
+    @DisplayName("문자열 \"abc\"에서 유효하지 않은 위치의 문자를 추출")
+    void extractCharacterByPosition() {
+        // given
+        String data = "abc";
+        int invalidBoundary = 3;
+
+        // then
+        assertThatThrownBy(() -> data.charAt(invalidBoundary))
+                .isInstanceOf(IndexOutOfBoundsException.class)
+                .hasMessageContaining(String.format("String index out of range: %d", invalidBoundary));
+
+        assertThatExceptionOfType(IndexOutOfBoundsException.class)
+                .isThrownBy(() -> data.charAt(invalidBoundary))
+                .withMessageMatching("String index out of range: \\d+");
     }
 }
