@@ -35,4 +35,20 @@ public class StringTest {
         assertThat(splitArray).containsExactly("1");
         assertThat(splitArray.length).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("문자열 \"(1,2)\"의 소괄호 제거")
+    void removeBracket() {
+        // given
+        String data = "(1,2)";
+        int openBracketIndex = data.indexOf('(');
+        int closeBracketIndex = data.indexOf(')');
+
+        // when
+        String result = data.substring(openBracketIndex + 1, closeBracketIndex);
+
+        // then
+        assertThat(result).doesNotContain("(", ")");
+        assertThat(result).isEqualTo("1,2");
+    }
 }
