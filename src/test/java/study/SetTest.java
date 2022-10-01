@@ -7,6 +7,8 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class SetTest {
     private Set<Integer> numbers;
@@ -33,5 +35,12 @@ public class SetTest {
         // then
         assertThat(actualSize).isEqualTo(validSize);
         assertThat(actualSize).isNotEqualTo(invalidSize);
+    }
+
+    @ParameterizedTest(name = "Set에 대해 삽입한 값이 존재하는지 확인")
+    @ValueSource(ints = {1, 2, 3})
+    void contains(int number) {
+        // then
+        assertThat(numbers.contains(number)).isTrue();
     }
 }
