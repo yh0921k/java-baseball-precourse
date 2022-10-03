@@ -52,7 +52,7 @@ public class OutputConsole {
     }
 
     public static void printErrorView() {
-        System.out.print(GameMessage.GAME_ERROR_OUTPUT);
+        System.out.println(GameMessage.GAME_ERROR_OUTPUT);
     }
 
     public static void printWinView(GameCounter gameCounter) {
