@@ -46,7 +46,7 @@ class RandomNumberTest {
     @Test
     @DisplayName("생성된 난수 리스트에 중복이 없는지 검증")
     void isNotContainsDuplicatedNumber() {
-        for(List<Integer> randomList: randomNumbersList) {
+        for (List<Integer> randomList : randomNumbersList) {
             // given
             randomSet = new LinkedHashSet<>();
 

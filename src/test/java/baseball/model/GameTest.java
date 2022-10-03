@@ -47,7 +47,7 @@ class GameTest {
 
         // when
         gameCounter.calculate(userNumbers, gameNumbers);
-        if(gameCounter.getStrike() == GameEnvironment.NUMBER_SIZE) {
+        if (gameCounter.getStrike() == GameEnvironment.NUMBER_SIZE) {
             game.over();
         }
 

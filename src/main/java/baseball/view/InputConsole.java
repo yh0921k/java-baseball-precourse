@@ -22,7 +22,7 @@ public class InputConsole {
     }
 
     private static void occursErrorBy(boolean isValid) {
-        if(!isValid) {
+        if (!isValid) {
             OutputConsole.printErrorView();
             throw new IllegalArgumentException(GameMessage.GAME_ERROR_OUTPUT);
         }

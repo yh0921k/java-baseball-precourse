@@ -36,7 +36,7 @@ public class GameController {
     }
 
     private static boolean checkGameOver(GameCounter counter) {
-        if(game.isOver()) {
+        if (game.isOver()) {
             OutputConsole.printWinView(counter);
             return true;
         }
@@ -44,12 +44,12 @@ public class GameController {
     }
 
     private static void checkRestart(boolean isGameOver) {
-        if(!isGameOver) {
+        if (!isGameOver) {
             return;
         }
 
         int restartNumber = DataConverter.stringToDigit(InputConsole.readRestartNumber());
-        if(restartNumber == GameStatus.START.getStatus()) {
+        if (restartNumber == GameStatus.START.getStatus()) {
             game = new Game();
         }
     }
