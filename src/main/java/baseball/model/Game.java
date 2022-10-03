@@ -2,6 +2,7 @@ package baseball.model;
 
 import baseball.constant.GameEnvironment;
 import baseball.constant.GameStatus;
+import baseball.util.DataConverter;
 import java.util.List;
 
 public class Game {
@@ -25,11 +26,12 @@ public class Game {
         status = GameStatus.END;
     }
 
-    public GameCounter score(List<Integer> userList) {
-        List<Integer> randomList = randomNumber.getRandomList();
+    public GameCounter play(String input) {
+        List<Integer> userNumbers = DataConverter.stringToIntegerList(input);
+        List<Integer> gameNumbers = randomNumber.getRandomList();
 
         GameCounter counter = new GameCounter();
-        counter.calculate(userList, randomList);
+        counter.calculate(userNumbers, gameNumbers);
 
         checkGameOver(counter);
         return counter;
